@@ -4,9 +4,11 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>junkjunk</title>
+        <title>Dingles Dialogue</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -16,7 +18,7 @@
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.scss">
+        <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <script src="bower_components/modernizr/modernizr.js"></script>
 
@@ -27,20 +29,54 @@
         <![endif]-->
 
 
-        <div class="heading" style="background: black">
-            <div class="login">Login</div>
+        <div class="container">
+            <div class="header">
+              <h3> <span class="chat"></span></h3>
+              <div class="button login">Login</div>
+              <form class="login-form">
+                <input type="text" value=" type your username" class="login-type"></input>
+              </form>
+              <div class="username"></div>
+            </div>
+            <div class="placeholder">
+              <h1 class="welcome">
+                Dingles Dialogue
+              </h1>
+              <h2>
+                Login
+              </h2>
+            </div>
+            <div class="message-gateway">
+              <div class="message-area"><!-- See script.messages below --></div>
+              <div class="message-post">
+                <form class="message-form">
+                  <input type="text" value=" type a new message and press enter" class="message-type"></input>
+                </form>
+              </div>
+            </div>
         </div>
-        <div class="title">Dingles Dialogue</div>
-        <div class="main-body">
-            <div class="chat-box">hello</div>
-            <div class="message"></div>
-        </div>
-            
+
+        <script type="text/template" class="messages">
+          <div class="message-container">
+            <div class="user">
+              <%=user%>
+            </div>
+            <div class="message">
+              <%=message%>
+            </div>
+            <div class="time">
+              // <%=time%>
+              <%= moment(parseInt(time)).format('MMMM YYYY, h:mm a') %>
+            </div>
+          </div>
+        </script>
 
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
+        <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/momentjs/moment.js">
         <!-- endbower -->
         <!-- endbuild -->
 
